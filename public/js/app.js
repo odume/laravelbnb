@@ -5317,28 +5317,25 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      bookable1: {
-        title: "Cheap Villa",
-        content: "A very cheap villa",
-        price: 2000
-      },
-      bookable2: {
-        title: "Expensive Villa",
-        content: "A very expensive villa",
-        price: 20000
-      }
+      bookable1: null,
+      bookable2: null
     };
   },
   created: function created() {
     var _this = this;
 
-    console.log("created");
-    console.log(this.bookable1);
-    console.log(this.bookable2);
     setTimeout(function () {
-      _this.bookable1.title = "Very Cheap Villa";
-      _this.bookable2.title = "Very Expensive Villa";
-    }, 5000);
+      _this.bookable1 = {
+        title: "Cheap Villa",
+        content: "A very cheap villa",
+        price: 2000
+      };
+      _this.bookable2 = {
+        title: "Expensive Villa",
+        content: "A very expensive villa",
+        price: 20000
+      };
+    }, 2000);
   }
 });
 
@@ -28299,21 +28296,25 @@ var render = function () {
   return _c(
     "div",
     [
-      _c("bookable-list-item", {
-        attrs: {
-          title: _vm.bookable1.title,
-          content: _vm.bookable1.content,
-          price: _vm.bookable1.price,
-        },
-      }),
+      _vm.bookable1
+        ? _c("bookable-list-item", {
+            attrs: {
+              title: _vm.bookable1.title,
+              content: _vm.bookable1.content,
+              price: _vm.bookable1.price,
+            },
+          })
+        : _vm._e(),
       _vm._v(" "),
-      _c("bookable-list-item", {
-        attrs: {
-          title: _vm.bookable2.title,
-          content: _vm.bookable2.content,
-          price: _vm.bookable2.price,
-        },
-      }),
+      _vm.bookable2
+        ? _c("bookable-list-item", {
+            attrs: {
+              title: _vm.bookable2.title,
+              content: _vm.bookable2.content,
+              price: _vm.bookable2.price,
+            },
+          })
+        : _vm._e(),
     ],
     1
   )

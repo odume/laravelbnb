@@ -1,11 +1,11 @@
 <template>
   <div>
-    <bookable-list-item
+    <bookable-list-item v-if="bookable1"
       :title="bookable1.title"
       :content="bookable1.content"
       :price="bookable1.price"
     ></bookable-list-item>
-    <bookable-list-item
+    <bookable-list-item v-if="bookable2"
       :title="bookable2.title"
       :content="bookable2.content"
       :price="bookable2.price"
@@ -21,29 +21,25 @@ export default {
 
   data() {
       return {
-          bookable1: {
-              title: "Cheap Villa",
-              content: "A very cheap villa",
-              price: 2000,
-          },
-
-          bookable2: {
-              title: "Expensive Villa",
-              content: "A very expensive villa",
-              price: 20_000,
-          },
+          bookable1: null,
+          bookable2: null,
       }
   },
 
   created() {
-    console.log("created");
-    console.log(this.bookable1);
-    console.log(this.bookable2);
 
     setTimeout(() => {
-        this.bookable1.title = "Very Cheap Villa";
-        this.bookable2.title = "Very Expensive Villa";
-    }, 5000);
+        this.bookable1 = {
+              title: "Cheap Villa",
+              content: "A very cheap villa",
+              price: 2000,
+          };
+        this.bookable2 = {
+              title: "Expensive Villa",
+              content: "A very expensive villa",
+              price: 20_000,
+          };
+    }, 2000);
   },
 };
 </script>
