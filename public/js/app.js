@@ -5275,6 +5275,9 @@ __webpack_require__.r(__webpack_exports__);
     'title': String,
     'content': String,
     'price': Number
+  },
+  mounted: function mounted() {
+    console.log(this.title);
   }
 });
 
@@ -5311,6 +5314,31 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
     BookableListItem: _BookableListItem__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
+  data: function data() {
+    return {
+      bookable1: {
+        title: "Cheap Villa",
+        content: "A very cheap villa",
+        price: 2000
+      },
+      bookable2: {
+        title: "Expensive Villa",
+        content: "A very expensive villa",
+        price: 20000
+      }
+    };
+  },
+  created: function created() {
+    var _this = this;
+
+    console.log("created");
+    console.log(this.bookable1);
+    console.log(this.bookable2);
+    setTimeout(function () {
+      _this.bookable1.title = "Very Cheap Villa";
+      _this.bookable2.title = "Very Expensive Villa";
+    }, 5000);
   }
 });
 
@@ -28242,7 +28270,7 @@ var render = function () {
     _vm._v(" "),
     _c("p", [_vm._v(_vm._s(_vm.content))]),
     _vm._v(" "),
-    _c("p", [_vm._v(_vm._s(_vm.price))]),
+    _c("p", [_vm._v(_vm._s(_vm.price) + " €")]),
   ])
 }
 var staticRenderFns = []
@@ -28273,17 +28301,17 @@ var render = function () {
     [
       _c("bookable-list-item", {
         attrs: {
-          title: "Cheap Villa",
-          content: "A very cheap villa",
-          price: 2000,
+          title: _vm.bookable1.title,
+          content: _vm.bookable1.content,
+          price: _vm.bookable1.price,
         },
       }),
       _vm._v(" "),
       _c("bookable-list-item", {
         attrs: {
-          title: "Expensive Villa",
-          content: "A very expensive villa",
-          price: 20000,
+          title: _vm.bookable2.title,
+          content: _vm.bookable2.content,
+          price: _vm.bookable2.price,
         },
       }),
     ],
