@@ -5317,24 +5317,29 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      bookable1: null,
-      bookable2: null
+      bookables: null,
+      loading: false
     };
   },
   created: function created() {
     var _this = this;
 
+    this.loading = true;
     setTimeout(function () {
-      _this.bookable1 = {
+      _this.bookables = [{
         title: "Cheap Villa",
         content: "A very cheap villa",
         price: 2000
-      };
-      _this.bookable2 = {
+      }, {
         title: "Expensive Villa",
         content: "A very expensive villa",
         price: 20000
-      };
+      }, {
+        title: "Expensive Villa 2",
+        content: "A second expensive villa",
+        price: 25000
+      }];
+      _this.loading = false;
     }, 2000);
   }
 });
@@ -28293,31 +28298,24 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    [
-      _vm.bookable1
-        ? _c("bookable-list-item", {
-            attrs: {
-              title: _vm.bookable1.title,
-              content: _vm.bookable1.content,
-              price: _vm.bookable1.price,
-            },
-          })
-        : _vm._e(),
-      _vm._v(" "),
-      _vm.bookable2
-        ? _c("bookable-list-item", {
-            attrs: {
-              title: _vm.bookable2.title,
-              content: _vm.bookable2.content,
-              price: _vm.bookable2.price,
-            },
-          })
-        : _vm._e(),
-    ],
-    1
-  )
+  return _c("div", [
+    _vm.loading
+      ? _c("div", [_vm._v("Data is loading ...")])
+      : _c(
+          "div",
+          _vm._l(_vm.bookables, function (bookable, index) {
+            return _c("bookable-list-item", {
+              key: index,
+              attrs: {
+                title: bookable.title,
+                content: bookable.content,
+                price: bookable.price,
+              },
+            })
+          }),
+          1
+        ),
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true

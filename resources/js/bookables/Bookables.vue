@@ -1,15 +1,15 @@
 <template>
   <div>
-    <bookable-list-item v-if="bookable1"
-      :title="bookable1.title"
-      :content="bookable1.content"
-      :price="bookable1.price"
-    ></bookable-list-item>
-    <bookable-list-item v-if="bookable2"
-      :title="bookable2.title"
-      :content="bookable2.content"
-      :price="bookable2.price"
-    ></bookable-list-item>
+    <div v-if="loading">Data is loading ...</div>
+    <div v-else>
+      <bookable-list-item
+        v-for="(bookable, index) in bookables"
+        :key="index"
+        :title="bookable.title"
+        :content="bookable.content"
+        :price="bookable.price"
+      ></bookable-list-item>
+    </div>
   </div>
 </template>
 
@@ -20,25 +20,33 @@ export default {
   components: { BookableListItem },
 
   data() {
-      return {
-          bookable1: null,
-          bookable2: null,
-      }
+    return {
+      bookables: null,
+      loading: false,
+    };
   },
 
   created() {
-
+    this.loading = true;
     setTimeout(() => {
-        this.bookable1 = {
-              title: "Cheap Villa",
-              content: "A very cheap villa",
-              price: 2000,
-          };
-        this.bookable2 = {
-              title: "Expensive Villa",
-              content: "A very expensive villa",
-              price: 20_000,
-          };
+      this.bookables = [
+        {
+          title: "Cheap Villa",
+          content: "A very cheap villa",
+          price: 2000,
+        },
+        {
+          title: "Expensive Villa",
+          content: "A very expensive villa",
+          price: 20_000,
+        },
+        {
+          title: "Expensive Villa 2",
+          content: "A second expensive villa",
+          price: 25_000,
+        },
+      ];
+      this.loading = false;
     }, 2000);
   },
 };
