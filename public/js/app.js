@@ -5270,14 +5270,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
-    'title': String,
-    'content': String,
-    'price': Number
-  },
-  mounted: function mounted() {
-    console.log(this.title);
+    title: String,
+    content: String,
+    price: Number
   }
 });
 
@@ -5310,6 +5309,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
@@ -5318,8 +5318,14 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       bookables: null,
-      loading: false
+      loading: false,
+      colNumber: 3
     };
+  },
+  computed: {
+    rows: function rows() {
+      return this.bookables === null ? 0 : Math.ceil(this.bookables.length / this.colNumber);
+    }
   },
   created: function created() {
     var _this = this;
@@ -5334,6 +5340,38 @@ __webpack_require__.r(__webpack_exports__);
         title: "Expensive Villa",
         content: "A very expensive villa",
         price: 20000
+      }, {
+        title: "Expensive Villa 2",
+        content: "A second expensive villa",
+        price: 25000
+      }, {
+        title: "Expensive Villa 2",
+        content: "A second expensive villa",
+        price: 25000
+      }, {
+        title: "Expensive Villa 2",
+        content: "A second expensive villa",
+        price: 25000
+      }, {
+        title: "Expensive Villa 2",
+        content: "A second expensive villa",
+        price: 25000
+      }, {
+        title: "Expensive Villa 2",
+        content: "A second expensive villa",
+        price: 25000
+      }, {
+        title: "Expensive Villa 2",
+        content: "A second expensive villa",
+        price: 25000
+      }, {
+        title: "Expensive Villa 2",
+        content: "A second expensive villa",
+        price: 25000
+      }, {
+        title: "Expensive Villa 2",
+        content: "A second expensive villa",
+        price: 25000
       }, {
         title: "Expensive Villa 2",
         content: "A second expensive villa",
@@ -28267,12 +28305,14 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _c("h1", [_vm._v(_vm._s(_vm.title))]),
-    _vm._v(" "),
-    _c("p", [_vm._v(_vm._s(_vm.content))]),
-    _vm._v(" "),
-    _c("p", [_vm._v(_vm._s(_vm.price) + " €")]),
+  return _c("div", { staticClass: "card" }, [
+    _c("div", { staticClass: "card-body" }, [
+      _c("h5", { staticClass: "card-title" }, [_vm._v(_vm._s(_vm.title))]),
+      _vm._v(" "),
+      _c("p", { staticClass: "card-text" }, [_vm._v(_vm._s(_vm.content))]),
+      _vm._v(" "),
+      _c("p", { staticClass: "card-text" }, [_vm._v(_vm._s(_vm.price) + " €")]),
+    ]),
   ])
 }
 var staticRenderFns = []
@@ -28299,6 +28339,8 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
+    _c("span", [_vm._v("Rows: " + _vm._s(_vm.rows))]),
+    _vm._v(" "),
     _vm.loading
       ? _c("div", [_vm._v("Data is loading ...")])
       : _c(

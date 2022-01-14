@@ -23,7 +23,14 @@ export default {
     return {
       bookables: null,
       loading: false,
+      colNumber: 3,
     };
+  },
+
+  computed: {
+    rows() {
+      return this.bookables === null ? 0 : Math.ceil(this.bookables.length / this.colNumber);
+    },
   },
 
   created() {
@@ -39,6 +46,46 @@ export default {
           title: "Expensive Villa",
           content: "A very expensive villa",
           price: 20_000,
+        },
+        {
+          title: "Expensive Villa 2",
+          content: "A second expensive villa",
+          price: 25_000,
+        },
+        {
+          title: "Expensive Villa 2",
+          content: "A second expensive villa",
+          price: 25_000,
+        },
+        {
+          title: "Expensive Villa 2",
+          content: "A second expensive villa",
+          price: 25_000,
+        },
+        {
+          title: "Expensive Villa 2",
+          content: "A second expensive villa",
+          price: 25_000,
+        },
+        {
+          title: "Expensive Villa 2",
+          content: "A second expensive villa",
+          price: 25_000,
+        },
+        {
+          title: "Expensive Villa 2",
+          content: "A second expensive villa",
+          price: 25_000,
+        },
+        {
+          title: "Expensive Villa 2",
+          content: "A second expensive villa",
+          price: 25_000,
+        },
+        {
+          title: "Expensive Villa 2",
+          content: "A second expensive villa",
+          price: 25_000,
         },
         {
           title: "Expensive Villa 2",
