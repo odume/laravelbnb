@@ -9,5 +9,7 @@ class Bookable extends Model
 {
     use HasFactory;
 
-
+    protected $casts = [
+        'price' => 'float'
+    ];
 }

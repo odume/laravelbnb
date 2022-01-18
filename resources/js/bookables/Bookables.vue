@@ -61,16 +61,6 @@ export default {
   created() {
     this.loading = true;
 
-    const p = new Promise((resolve, reject) => {
-      console.log(resolve);
-      console.log(reject);
-      setTimeout(() => resolve("Hello"), 3000);
-    })
-      .then((result) => result + " again")
-      .then((result) => console.log(`Success ${result}`))
-      .catch((reject) => console.log(`Error ${reject}`));
-    console.log(p);
-
     axios.get("/api/bookables").then((response) => {
       this.bookables = response.data;
       this.loading = false;

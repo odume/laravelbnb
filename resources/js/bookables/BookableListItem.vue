@@ -10,6 +10,6 @@
 
 <script>
 export default {
-  props: { title: String, description: String, price: String },
+  props: { title: String, description: String, price: Number },
 };
 </script>

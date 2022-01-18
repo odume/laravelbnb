@@ -5276,7 +5276,7 @@ __webpack_require__.r(__webpack_exports__);
   props: {
     title: String,
     description: String,
-    price: String
+    price: Number
   }
 });
 
@@ -5349,20 +5349,6 @@ __webpack_require__.r(__webpack_exports__);
     var _this = this;
 
     this.loading = true;
-    var p = new Promise(function (resolve, reject) {
-      console.log(resolve);
-      console.log(reject);
-      setTimeout(function () {
-        return resolve("Hello");
-      }, 3000);
-    }).then(function (result) {
-      return result + " again";
-    }).then(function (result) {
-      return console.log("Success ".concat(result));
-    })["catch"](function (reject) {
-      return console.log("Error ".concat(reject));
-    });
-    console.log(p);
     axios.get("/api/bookables").then(function (response) {
       _this.bookables = response.data;
       _this.loading = false;
