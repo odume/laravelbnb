@@ -30,7 +30,7 @@ export default {
     axios
       .get(`/api/bookables/${this.$route.params.id}`)
       .then((res) => {
-        this.bookable = res.data;
+        this.bookable = res.data.data;
         this.loading = false;
       })
       .catch((err) => {
