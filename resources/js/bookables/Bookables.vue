@@ -9,9 +9,7 @@
           :key="'col' + row + index"
         >
           <bookable-list-item
-            :title="bookable.title"
-            :description="bookable.description"
-            :price="bookable.price"
+            v-bind="bookable"
           ></bookable-list-item>
         </div>
         <div
