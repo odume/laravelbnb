@@ -13,12 +13,12 @@ use Illuminate\Support\Facades\Route;
 | routes are loaded by the RouteServiceProvider within a group which
 | is assigned the "api" middleware group. Enjoy building your API!
 |
-*/
+ */
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('bookables', 'Api\BookableController@index');
 
-Route::get('bookables/{id}', 'Api\BookableController@show');
+Route::apiResource('bookables', BookableController::class)
+    ->only('index', 'show');
