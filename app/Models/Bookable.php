@@ -12,4 +12,9 @@ class Bookable extends Model
     protected $casts = [
         'price' => 'float'
     ];
+
+    public function bookings()
+    {
+        return $this->hasMany(Booking::class);
+    }
 }
