@@ -14,7 +14,8 @@
         <div class="row pt-4">
           <div class="col-md-6">Dudu</div>
           <div class="col-md-6 d-flex justify-content-end">
-            {{ review.rating }}
+            <!-- Class will be passed to the root div of the child comp -->
+            <star-rating :rating="review.rating" class="fa-lg"></star-rating>
           </div>
         </div>
         <div class="row">
@@ -56,10 +57,10 @@ export default {
       .then(() => (this.loading = false));
   },
 
-//   filters: {
-//       fromNow(value) {
-//           return moment(value).fromNow();
-//       }
-//   }
+  //   filters: {
+  //       fromNow(value) {
+  //           return moment(value).fromNow();
+  //       }
+  //   }
 };
 </script>
